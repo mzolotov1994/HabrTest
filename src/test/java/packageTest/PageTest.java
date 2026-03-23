@@ -21,7 +21,10 @@ public class PageTest {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get("https://www.habr.com");
+        setLicenseIfExist();
+    }
 
+    public void setLicenseIfExist(){
         List<WebElement> buttonsConsent = driver.findElements(By.cssSelector(".fc-button-label"));
         if (!buttonsConsent.isEmpty()) {
             buttonsConsent.get(0).click();
